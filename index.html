@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine Surprise</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffe6f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #e60073;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d88;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #999;
+            color: white;
+            position: absolute;
+        }
+
+        #gifContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 300px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Anju, Will you be my Valentine? 😘💖</h1>
+    <button id="yesBtn">YES</button>
+    <button id="noBtn">NO</button>
+
+    <div id="gifContainer">
+        <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Love GIF">
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const gifContainer = document.getElementById("gifContainer");
+
+    // Make NO button move randomly
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // When YES is clicked
+    yesBtn.addEventListener("click", () => {
+        document.querySelector("h1").innerText = "Yayyyyy ❤️ Best decision ever!";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+        gifContainer.style.display = "block";
+    });
+</script>
+
+</body>
+</html>
